@@ -1,0 +1,11 @@
+// .claude/settings.json
+{
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": "if echo $CLAUDE_FILE_PATHS | grep -q '\\.rs$'; then cargo check --message-format=short 2>&1 | head -20; fi"
+      }
+    ]
+  }
+}
